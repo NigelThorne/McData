@@ -29,4 +29,4 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
-config :mc_data, :version, "1.9.2"
+config :mc_data, :version, "1.12"
