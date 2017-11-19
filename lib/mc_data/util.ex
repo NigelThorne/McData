@@ -17,10 +17,11 @@ defmodule McData.Util do
   def read_data({version, name}) do
     path = mc_data_ver_file(version, name)
     IO.inspect path
-    {:ok, raw_contents} =  File.read(path)
+    raw_contents = case File.read(path) do
+      {:ok, raw_content} -> raw_content
+      {:error, :enoent} -> ""
+    end
     {:ok, contents} = Poison.Parser.parse(raw_contents)
     contents
   end
-
-
 end
