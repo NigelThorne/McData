@@ -19,7 +19,7 @@ defmodule McData.Util do
     IO.inspect path
     raw_contents = case File.read(path) do
       {:ok, raw_content} -> raw_content
-      {:error, :enoent} -> ""
+      {:error, :enoent} -> "{}"
     end
     {:ok, contents} = Poison.Parser.parse(raw_contents)
     contents
